@@ -48,7 +48,7 @@ func newsRoutine(c chan News, Location string) {
 func newsAggHandler(w http.ResponseWriter, r *http.Request) {
 
 	var s Sitemapindex
-	resp, _ := http.Get("https://www.washingtonpost.com/news-sitemap-index.xml")
+	resp, _ := http.Get("https://www.washingtonpost.com/news-sitemaps/index.xml")
 	bytes, _ := ioutil.ReadAll(resp.Body)
 	xml.Unmarshal(bytes, &s)
 	news_map := make(map[string]NewsMap)
